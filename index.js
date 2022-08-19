@@ -27,13 +27,9 @@ const carousel_prev = () => {
 		carousel_item[_counter - 1].classList.add('active')
 		carousel_item[_counter - 1].classList.remove('last')
 
-		if (carousel_item[_counter - 2]) {
-			carousel_item[_counter - 2].classList.add('last')
-		}
-
-		if (!carousel_item[_counter - 2]) {
-			carousel_item[carousel_items - 1].classList.add('last')
-		}
+		carousel_item[_counter - 2] ?
+		carousel_item[_counter - 2].classList.add('last') :
+		carousel_item[carousel_items - 1].classList.add('last')
 
 		_counter--
 	}
@@ -52,13 +48,10 @@ const carousel_next = () => {
 
 		carousel_item[_counter].classList.add('last')
 
-		if (carousel_item[_counter + 1]) {
-			carousel_item[_counter + 1].classList.add('active')
-		}
+		carousel_item[_counter + 1] ?
+		carousel_item[_counter + 1].classList.add('active') :
+		carousel_item[0].classList.add('active')
 
-		if (!carousel_item[_counter + 1]) {
-			carousel_item[0].classList.add('active')
-		}
 		_counter++
 	}
 }
